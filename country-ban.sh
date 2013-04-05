@@ -11,7 +11,7 @@ WGET=/usr/bin/wget
 EGREP=/bin/egrep
 
 ### Safety: Your own IP address should _never_ be blocked!
-OWNIP="75.157.10.120"
+OWNIPS="75.157.10.120 192.168.0.1 127.0.0.1"
 
 ### No editing below ###
 COUNTRYLIST="allowed-countries-ips"
@@ -60,7 +60,10 @@ do
 done
 
 # Allow own IP address to have access
-$IPT -A $COUNTRYLIST -s $OWNIP -j ACCEPT
+for OWNIP in $OWNIPS
+do
+    $IPT -A $COUNTRYLIST -s $OWNIP -j ACCEPT
+done
 
 # Drop everything else
 $IPT -A $COUNTRYLIST -j DROP
