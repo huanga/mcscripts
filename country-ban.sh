@@ -3,7 +3,7 @@
 ISO="it"
 
 #example to allow Italy (it), Canada (ca), and Taiwan (tw)
-#ISO="it ca"
+#ISO="it ca tw"
 
 ### Set PATH ###
 IPT=/sbin/iptables
